@@ -13,7 +13,7 @@ require 'rails_helper'
  RSpec.describe "Users", type: :request do
 
       describe "GET users#index" do
-        it "should get index" do
+        it "should get the index of the user" do
           get '/users/5/'
           # get users_index_path
           expect(response).to have_http_status(200)
