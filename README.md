@@ -22,7 +22,12 @@ Clone the repo and run bundle install in the command line to install the depende
 ```bash
 bundle install
 ```
+# Testing
 
+- Clone the repo 
+- `cd blog-app`
+- Run bundle install in the command line to install the dependencies
+- Run bundle exec rspec
 ## Author
 
 👤 **Aniekan udo**
