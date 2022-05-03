@@ -7,6 +7,6 @@ class Comment < ApplicationRecord
   private
 
   def comment_counter_update
-    post.increment!(:posts_counter)
+    post.increment!(:comments_counter)
   end
 end
