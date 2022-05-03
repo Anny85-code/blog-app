@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   private
-  
+
   def comment_counter_update
     post.increment!(:posts_counter)
   end
