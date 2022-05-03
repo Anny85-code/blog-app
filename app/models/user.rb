@@ -7,4 +7,3 @@ class User < ApplicationRecord
     posts.where(author_id.params[:id]).order(created_at: :desc).limit(3)
   end
 end
-# Post.where(author_id:1)
