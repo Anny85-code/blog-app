@@ -1,4 +1,9 @@
 class User < ApplicationRecord
-  first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-  second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
+  has_many :posts, foreign_key: 'author_id'
+  has_many :likes, foreign_key: 'author_id'
+  has_many :comments, foreign_key: 'author_id'
+
+  def recent_users
+    users.order_by()
+  end
 end
