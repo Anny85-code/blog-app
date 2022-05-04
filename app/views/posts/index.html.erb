@@ -1,2 +1,5 @@
-<h1>Posts#index</h1>
-<p>Here is a list of posts for a given user</p>
+<% @posts.each do |comment| %>
+  <h3><%= comment.title %></h3>
+  <p>Comment Body: <%= comment.text %></p>
+  <span><%= comment.author.name %></span>
+<% end %>
