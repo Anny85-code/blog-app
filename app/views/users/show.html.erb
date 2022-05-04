@@ -12,15 +12,17 @@
 </div>
 <% @user.recent_post.each do |post| %>
 <div class="card m-5 p-3">
-<h3><%= post.title %></h3>
-<p><%= post.text %></p>
-<div>
-  <span><%= post.comments_counter %></span>
-  <span><%= post.likes_counter %></span>
+<div class="d-flex justify-content-between">
+<div><h3><%= post.title %></h3>
+<p><%= post.text %></p></div>
+<div class="mb-1 mr-5 d-flex flex-wrap align-content-end">
+  <span>Comments: <%= post.comments_counter %></span>
+  <span class="ml-2">Likes: <%= post.likes_counter %></span>
+</div>
 </div>
 </div>
 
 <% end %>
 <div class="d-flex justify-content-center pb-5">
-<button type="button" class="btn btn-primary"><%""%>See all posts</button>
+<button type="button" class="btn btn-primary shadow rounded"><%""%>See all posts</button>
 </div>
