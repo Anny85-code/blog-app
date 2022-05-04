@@ -1,2 +1,9 @@
-<h3><%=params[:id]%></h3>
-<p>This will display the details for a single user</p>
+<% @user.recent_post.each do |post| %>
+
+<h3><%= post.title %></h3>
+<p><%= post.text %></p>
+<div>
+  <span><%= post.comments_counter %></span>
+  <span><%= post.likes_counter %></span>
+</div>
+<% end %>
