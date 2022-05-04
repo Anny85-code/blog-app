@@ -1,5 +1,25 @@
+<div class="card m-5">
+<div class="d-flex justify-content-between">
+<div class="m-1"><%= image_tag @user.photo, :height => "150px", :width => "150px" %></div>
+<div class="m-5 flex-grow-1"><h1><%= @user.name %></h1></div>
+<div class="mb-2 mr-5 d-flex flex-wrap align-content-end"><h5>Number of Posts: <%= @user.post_counter%></h5></div>
+</div>
+</div>
+
 <% @posts.each do |comment| %>
-  <h3><%= comment.title %></h3>
-  <p>Comment Body: <%= comment.text %></p>
+ <div class="card m-5"> 
+ <div class="d-flex justify-content-between">
+ <div> <h3><%= comment.title %></h3></div>
+ <div> <p>Comment Body: <%= comment.text %></p> </div>
+
+  <div class="mb-1 mr-5 d-flex flex-direction-row flex-wrap align-content-end w-25">
+  <span>Comments: <%= post.comments_counter %></span>
+  <span class="ml-2">Likes: <%= post.likes_counter %></span>
+</div>
+</div>
+  </div>
+  <div>
   <span><%= comment.author.name %></span>
+  <span><%= comment.text %></span>
+  </div>
 <% end %>
