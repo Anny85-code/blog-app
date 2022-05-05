@@ -6,12 +6,12 @@ class Post < ApplicationRecord
   has_many :comments
 
   def recent_comments
-  comments.order('created_at Desc').limit(5)
-end
+    comments.order('created_at Desc').limit(5)
+  end
 
   private
 
   def post_increment
-    author.increment!(:posts_counter)
+    author.increment!(:post_counter)
   end
 end
