@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   # get "users/:user_id/posts/:id", to: "posts#show"
 
   resources :users, only: [:index, :show] do
-      resources :posts, only: [:index, :show]
+      resources :posts, only: [:index, :show] do
+        resources :comments, only: [:index, :show]
+        resources :likes, only: [:index, :show]
+      end
   end
   # Defines the root path route ("/")
   root "users#index"

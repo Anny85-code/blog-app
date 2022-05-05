@@ -1,2 +1,9 @@
-<h1>Posts#show</h1>
-<p>Will display details of a single post</p>
+<h2><%= @post.title %> by <%= @post.author.name %></h2>
+<div class="p-3">
+  <p>Comments: <%= @post.comments.size %></p>
+  <p>Likes: <%= @post.likes.size %></p>
+</div>
+
+<% @post.recent_comments.each do |comment| %>
+  <p>Comment Body: <%= comment.text %></p>
+<% end %>

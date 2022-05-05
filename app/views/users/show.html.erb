@@ -13,7 +13,8 @@
 <% @user.recent_post.each do |post| %>
 <div class="card m-5 p-3">
 <div class="d-flex justify-content-between">
-<div><h3><%= link_to post.title, user_post_path(post) %></h3>
+<div><h3><%= link_to post.title, user_post_path(user_id: post.author_id, id: post.id
+) %></h3>
 <p><%= post.text %></p></div>
 <div class="mb-1 mr-5 d-flex flex-direction-row flex-wrap align-content-end w-25">
   <span>Comments: <%= post.comments_counter %></span>
@@ -24,5 +25,5 @@
 
 <% end %>
 <div class="d-flex justify-content-center pb-5">
-<button type="button" class="btn btn-primary shadow rounded"><%""%>See all posts</button>
+<button type="button" class="btn btn-info shadow rounded"><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: "btn-info" %></button>
 </div>
