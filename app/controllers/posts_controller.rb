@@ -15,6 +15,14 @@ class PostsController < ApplicationController
 
   def create 
     @post = Post.new(post_params)
+
+    respond_to do
+      if @post.save
+        format.html {redirect_to @post}
+      else
+        format.html {render :new}
+      end
+    end
   end
 
   private
