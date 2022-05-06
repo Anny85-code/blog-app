@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
- def new
+  def new
     @like = Like.new
   end
 
