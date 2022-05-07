@@ -59,9 +59,12 @@ group :development, :test do
   # gem 'rspec-rails', '~> 6.0.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
-  end
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+
+
+  # %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  #   gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  # end
 end
 
 group :development do
