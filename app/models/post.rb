@@ -5,6 +5,10 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments
   validates :title, presence: true
+  validates_associated :author
+  validates_presence_of :author_id
+  validates :title, length: { maximum: 250 }
+  
   def recent_comments
     comments.order('created_at Desc').limit(5)
   end
