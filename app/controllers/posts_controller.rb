@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:posts, :comments, :likes).find(params[:user_id])
     @posts = Post.all
-    @user = User.includes(:posts).find(params[:user_id])
+    # @user = User.includes(:posts).find(params[:user_id])
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:author, :comments, :likes).find(params[:id])
   end
 
   def new
@@ -14,13 +14,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.includes(:comments).new(post_params)
     @post.author = current_user
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_path(id: @post.author_id) }
-        flash[:notice] = "You have successfully created a post."
+        flash[:notice] = 'You have successfully created a post.'
       else
         format.html { render :new, alert: 'An error has occurred while creating the post' }
       end
