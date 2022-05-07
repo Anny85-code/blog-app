@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = Post.all
+    @user = User.includes(:posts).find(params[:user_id])
   end
 
   def show
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_path(id: @post.author_id) }
+        flash[:notice] = "You have successfully created a post."
       else
         format.html { render :new, alert: 'An error has occurred while creating the post' }
       end
