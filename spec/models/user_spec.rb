@@ -11,8 +11,13 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
 end
 
-  it "Title must not be blank" do
-    subject.title = nil
+  it "Name must not be blank" do
+    subject.name = "Anny"
+    expect(subject).to be_valid
+end
+
+  it "Post counter must be an integer" do
+    subject.post_counter = "Bright"
     expect(subject).to_not be_valid
 end
 
