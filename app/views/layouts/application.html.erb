@@ -12,11 +12,13 @@
   </head>
 
   <body>
+<%= render partial: "share/navbar" %>
+
   <% if notice %>
-      <p class="alert alert-success text-center msg"><%= notice %></p>
+    <div class="container"> <p class="alert alert-success text-center msg"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-danger text-center msg"><%= alert %></p>
+      <p class="alert alert-danger text-center msg"><%= alert %></p></div>
     <% end %>
 
     <%= yield %>
