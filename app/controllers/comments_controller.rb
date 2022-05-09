@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to user_post_path(user_id: @post.author_id, id: @post.id) }
-        flash[:notice] = 'You have successfully created a comment.'
+        flash[:notice] = 'Thanks for your comment.'
       else
         format.html { render :new, alert: 'An error has occurred while creating the comment!', class: 'alert-danger' }
       end

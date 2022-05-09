@@ -8,6 +8,8 @@ gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
 gem 'ffi'
 
+gem 'devise'
+
 gem 'rails-controller-testing'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
