@@ -1,7 +1,9 @@
 <div class="card mb-2" >
+<% @users&.each do |user|%>
+
     <div class="d-flex justify-content-between mb-3">
       <div class="m-5">
-        <%= image_tag user.photo, :alt => "user_photo", :height => "150px", :width => "150px" %>
+        <img src=<%= user.photo %> alt="<%= user.name %>'s profile picture" />
       </div>
       <div class="m-5 flex-grow-1">
         <article class="card-body " style="width: 18rem;"> 
@@ -14,4 +16,5 @@
           </h5>
         </div>
     </div>
+    <% end %>
   </div>
