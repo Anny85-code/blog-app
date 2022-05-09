@@ -1,14 +1,20 @@
 <div class="card m-5">
 <div class="d-flex justify-content-between">
 <div class="m-1"><%= image_tag @user.photo, :height => "150px", :width => "150px" %></div>
-<div class="m-5 flex-grow-1"><h1><%= @user.name%></h1></div>
-<div class="mb-2 mr-5 d-flex flex-wrap align-content-end"><h5>Number of Posts: <%= @user.post_counter%></h5></div>
+<div class="m-2 flex-grow-1">
+<div ><h3><%= @user.name%></h3></div>
+<h5><%= @user.bio %></h5>
+<div class="mb-2 mr-5 d-flex">
+<h6> - Wrote <%= @user.post_counter%> Posts</h6>
+</div>
+<button type="button" class="btn btn-info shadow rounded"><%= link_to "Add Post", new_user_post_path(user_id: @user.id), class: "btn-info" %></button>
+</div>
 </div>
 </div>
 
 <div class="card m-5 p-3">
-<h4> Bio </h4>
-<p><%= @user.bio %></p>
+<h4> Recent Posts </h4>
+
 </div>
 <% @user.recent_post.each do |post| %>
 <div class="card m-5 p-3">
@@ -25,7 +31,7 @@
 
 <% end %>
 <div class="d-flex justify-content-center pb-5">
-<button type="button" class="btn btn-info shadow rounded"><%= link_to "Add Post", new_user_post_path(user_id: @user.id), class: "btn-info" %></button>
+
 
 <button type="button" class="btn btn-info shadow rounded"><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: "btn-info" %></button>
 <button type="button" class="btn btn-info shadow rounded"><%= link_to "See all users", users_path, class: "btn-info" %></button>
