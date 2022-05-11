@@ -2,8 +2,8 @@ class Post < ApplicationRecord
   after_save :post_increment
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
-  has_many :likes
-  has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   validates :title, presence: true
   validates_associated :author
   validates_presence_of :author_id
