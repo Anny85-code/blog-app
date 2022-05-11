@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @user = User.includes(:posts, :comments, :likes).find(params[:user_id])
     @posts = Post.all
@@ -35,7 +34,7 @@ class PostsController < ApplicationController
     if @post.present?
     @post.destroy
     end
-    # Redirect
+    user.save
     respond_to do |format|
       format.html { redirect_to user_path(id: @post.author_id), notice: 'Post was removed.' }
     end
