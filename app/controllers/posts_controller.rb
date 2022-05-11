@@ -31,9 +31,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     user = User.find(@post.author_id)
     user.post_counter -= 1
-    if @post.present?
-    @post.destroy
-    end
+    @post.destroy if @post.present?
     user.save
     respond_to do |format|
       format.html { redirect_to user_path(id: @post.author_id), notice: 'Post was removed.' }
