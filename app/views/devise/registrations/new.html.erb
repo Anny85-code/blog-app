@@ -11,6 +11,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo, autocomplete: "photo" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area(:bio, size: '20x10') %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
