@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @user = User.includes(:posts, :comments, :likes).find(params[:user_id])
     @posts = Post.all
@@ -13,8 +15,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.includes(:comments).new(post_params)
-    @post.author = current_user
+    @post = Post.new(post_params)
+    @post.author_id = current_user.id
 
     respond_to do |format|
       if @post.save
@@ -23,6 +25,18 @@ class PostsController < ApplicationController
       else
         format.html { render :new, alert: 'An error has occurred while creating the post' }
       end
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    
+    if @post.present?
+    @post.destroy
+    end
+    # Redirect
+    respond_to do |format|
+      format.html { redirect_to user_path(id: @post.author_id), notice: 'Post was removed.' }
     end
   end
 

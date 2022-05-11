@@ -16,9 +16,13 @@ class User < ApplicationRecord
     posts.includes(:comments, :likes).order('created_at Desc').limit(3)
   end
 
-  Roles = [ :admin , :default ]
+  # Roles = [ :admin , :default ]
 
-  def is?( requested_role )
-    self.role == requested_role.to_s
+  # def is?( requested_role )
+  #   self.role == requested_role.to_s
+  # end
+  def admin?
+    role == 'admin' ? true : false
   end
+  
 end

@@ -29,6 +29,10 @@
       <li class="nav-item active">
         <a class="nav-link" href="/users/user_id/posts/new" tabindex="-1" >Add New Post</a>
       </li>
+      <li class="nav-item active ml-5">
+      <% if user_signed_in? %>
+      <a><%= button_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
+    <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
