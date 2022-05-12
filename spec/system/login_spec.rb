@@ -31,8 +31,8 @@ RSpec.feature 'Tests for the Log in Page', type: :feature do
       expect(page).to have_content 'Invalid Email or password.'
     end
     scenario 'if credentials are right' do
-      @user1 = User.create(name: 'John', photo: 'somephoto', bio: 'Teacher from Mexico.', email: 'john@gmail.com',
-                           password: 'johnsecret', confirmed_at: Time.now, post_counter: 0, role: 'admin')
+      @user1 = User.create(name: 'Anny', photo: 'annyphoto', bio: 'Full-stack developer', email: 'anny@gmail.com',
+                           password: '8519secret', confirmed_at: Time.now, post_counter: 0, role: 'admin')
       within 'form' do
         fill_in 'Email', with: @user1.email
         fill_in 'Password', with: @user1.password
