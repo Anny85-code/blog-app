@@ -1,5 +1,5 @@
 require 'rails_helper'
-# rubocop:disable :all
+# rubocop:disable all
 RSpec.feature 'Tests for user-index page', type: :feature do
   describe 'user#index' do
     before(:each) do
