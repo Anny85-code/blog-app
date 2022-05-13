@@ -1,15 +1,5 @@
 require 'rails_helper'
 
-
-# RSpec.describe 'User Login', type: :system do
-#   describe 'index page' do
-#     it 'shows the username and password inputs and the "Submit" button' do
-#       visit user_session_path
-#       expect(page).to have_content('username input, password input, submit button')
-#     end
-#   end
-# end
-
 RSpec.feature 'Tests for the Log in Page', type: :feature do
   background { visit new_user_session_path }
   scenario 'If there is form login' do
@@ -41,8 +31,8 @@ RSpec.feature 'Tests for the Log in Page', type: :feature do
       expect(page).to have_content 'Signed in successfully'
     end
   end
-end
 
+end
 
 
 
