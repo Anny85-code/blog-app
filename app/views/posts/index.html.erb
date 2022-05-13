@@ -1,6 +1,6 @@
 <div class="card m-5">
 <div class="d-flex justify-content-between">
-<%# < class="m-1"><%= image_tag @user.photo, :height => "150px", :width => "150px" %>
+<div class="m-1"><%= image_tag @user.photo, :height => "150px", :width => "150px" %></div>
 <div class="m-5 flex-grow-1"><h1><%= @user.name %></h1></div>
 <div class="mb-2 mr-5 d-flex flex-wrap align-content-end"><h5>Number of Posts: <%= @user.post_counter%></h5></div>
 </div>
@@ -11,7 +11,8 @@
     <div class="justify-content-between">
       <div> 
       <div>
-        <h2><%= post.title %></h2> 
+        <h2><%= link_to post.title, user_post_path(user_id: post.author_id, id: post.id
+) %></h2> 
         <p><%= post.text %></p>
         </div>
         <div class=" float-right">
@@ -24,13 +25,11 @@
           <%= form_with model: @like, url: user_post_likes_path(post_id: post.id) do |form| %>
           <%= form.submit "Add Like", class: "btn-info ml-2" %>
         <% end %>
+        </div>
+      </div>
     </div>
     </div>
-
-        
-        </div>
-        </div>
-        </div>
+  </div>
         
     
     <div class="card m-5"> 
@@ -46,4 +45,12 @@
 </div>
   
 <% end %>
+
+<div class="d-flex justify-content-center pb-5">
+
+  <button type="button" class="btn btn-info shadow rounded"><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: "btn-info" %></button>
+  <button type="button" class="btn btn-info shadow rounded"><%= link_to "See all users", users_path, class: "btn-info" %></button>
+  
+</div>
+
 
