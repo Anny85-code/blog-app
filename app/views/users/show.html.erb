@@ -34,6 +34,7 @@
 
 <div class="d-flex justify-content-center pb-5">
 
+  <button type="button" class="btn btn-info shadow rounded"><%= link_to "Pagination", user_posts_path(user_id: @user.id), class: "btn-info" %></button>
   <button type="button" class="btn btn-info shadow rounded"><%= link_to "See all posts", user_posts_path(user_id: @user.id), class: "btn-info" %></button>
   <button type="button" class="btn btn-info shadow rounded"><%= link_to "See all users", users_path, class: "btn-info" %></button>
   

@@ -45,8 +45,12 @@ RSpec.describe 'Testing posts/index page', type: :feature do
       expect(page).to have_content 'test for views'
     end
 
-    scenario 'if user can see posts count' do
+    scenario 'if user can see posts comment count' do
       expect(page).to have_content 'Comments: 3'
+    end
+
+    scenario 'if user can see posts comment body' do
+      expect(page).to have_content 'test comment 3'
     end
 
     scenario 'if user can see likes count' do
