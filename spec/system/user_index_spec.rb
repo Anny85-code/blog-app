@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.feature 'Tests for user-index page', type: :feature do
   describe 'user#index' do
-    before(:each) do 
+    before(:each) do
       User.destroy_all
-     @user1 = User.create(name: 'Samuel', photo: 'https://photo.png',
+      @user1 = User.create(name: 'Samuel', photo: 'https://photo.png',
                            bio: 'Teacher from Namibia.', email: 'sam@gmail.com',
                            password: '3456secret', confirmed_at: Time.now, post_counter: 0, role: 'admin')
       @user2 = User.create(name: 'Bassey', photo: 'https://photo.png',
@@ -41,7 +41,6 @@ RSpec.feature 'Tests for user-index page', type: :feature do
       expect(page).to have_content 'Number of Posts: 1'
       expect(page).to have_content 'Number of Posts: 2'
     end
-
 
     scenario 'I can see the profile picture for each user.' do
       expect(page.first('img')['src']).to have_content 'photo.png'

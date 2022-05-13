@@ -31,8 +31,4 @@ RSpec.feature 'Tests for the Log in Page', type: :feature do
       expect(page).to have_content 'Signed in successfully'
     end
   end
-
 end
-
-
-
