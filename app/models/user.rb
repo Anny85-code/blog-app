@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # attr_accessible :name , :email
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :confirmable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
+
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
 
   has_many :likes, foreign_key: 'author_id', dependent: :delete_all
@@ -21,4 +22,13 @@ class User < ApplicationRecord
   def admin?
     role == 'admin'
   end
+
+  def as_json(options={})
+      { :name => self.name }  # NOT including the email field
+    end
+
+    # Option 2: Working with the default #as_json method
+    def as_json(options={})
+      super(:only => [:name])
+    end
 end

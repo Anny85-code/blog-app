@@ -11,7 +11,13 @@ gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
 gem 'ffi'
 
+gem 'rack-cors'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'devise'
+
+gem 'devise-jwt'
 
 gem 'rails-controller-testing'
 
