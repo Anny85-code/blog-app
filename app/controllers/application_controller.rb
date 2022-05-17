@@ -1,7 +1,7 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   include ::ActionController::Caching
   # self.cache_store = :mem_cache_store
-  protect_from_forgery prepend: true
+  # protect_from_forgery prepend: true
 
   before_action :authenticate_user!
 
